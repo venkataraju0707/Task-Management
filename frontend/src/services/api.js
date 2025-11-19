@@ -9,7 +9,6 @@ const api = axios.create({
   },
 });
 
- 
 api.interceptors.response.use(
   (response) => response,
   (error) => {
@@ -19,33 +18,28 @@ api.interceptors.response.use(
 );
 
 export const taskAPI = {
-   
   getAllTasks: async () => {
-    const response = await api.get('/tasks');
+    const response = await api.get('/'); // baseURL already includes /api/tasks
     return response.data;
   },
 
-   
   getTask: async (id) => {
-    const response = await api.get(`/tasks/${id}`);
+    const response = await api.get(`/${id}`);
     return response.data;
   },
 
-   
   createTask: async (taskData) => {
-    const response = await api.post('/tasks', taskData);
+    const response = await api.post('/', taskData);
     return response.data;
   },
 
-   
   updateTask: async (id, taskData) => {
-    const response = await api.put(`/tasks/${id}`, taskData);
+    const response = await api.put(`/${id}`, taskData);
     return response.data;
   },
 
-  
   deleteTask: async (id) => {
-    const response = await api.delete(`/tasks/${id}`);
+    const response = await api.delete(`/${id}`);
     return response.data;
   },
 };
