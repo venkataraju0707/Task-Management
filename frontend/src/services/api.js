@@ -19,7 +19,7 @@ api.interceptors.response.use(
 
 export const taskAPI = {
   getAllTasks: async () => {
-    const response = await api.get('/'); // baseURL already includes /api/tasks
+    const response = await api.get('/');  
     return response.data;
   },
 
